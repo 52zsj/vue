@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../assets/js/vue.js"></script>
+    <title>vue.ccomponent 组件 -父子组件关系-重点</title>
+</head>
+
+<body>
+<h1>vue.ccomponent 组件 -父子组件关系-重点</h1>
+<a href="../index.html">返回首页</a>
+<hr>
+<div id="app">
+    <sj></sj>
+</div>
+
+<script>
+    /*父子组件*/
+    var city = {
+        template: '<div style="color: red;">中国牛逼</div>',
+    };
+    var sj = {
+        template: `<div style="color:pink;">我是中国人
+    <city></city>
+</div>`,
+        components: {
+            city: city
+        }
+    };
+
+    var app = new Vue({
+        el: "#app",
+        components: {
+            'sj': sj
+        },
+        methods: {},
+    });
+
+</script>
+</body>
+
+</html>

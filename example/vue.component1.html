@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../assets/js/vue.js"></script>
+    <title>vue.ccomponent 组件 -props 属性设置-重点</title>
+</head>
+
+<body>
+<h1>vue.ccomponent 组件 -props 属性设置-重点</h1>
+<a href="../index.html">返回首页</a>
+<hr>
+<div id="app">
+    <sj :form="addr" :user-name="username"></sj>
+</div>
+
+<script>
+/*注意点 如果存在-中杆线的内容 在构造器中应该使用小驼峰方式进行书写 例如上例中user-name 在构造器中应该改成userName*/
+    var app = new Vue({
+        el: "#app",
+        data:{
+            addr:'四川',
+            username:'功夫熊猫'
+        },
+        components: {
+            'sj': {
+                template: `<h3 style="color: red">我是来自{{form}}的{{userName}}</h3>`,
+                props:['form','userName']
+            }
+        },
+        methods: {},
+    });
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../assets/js/vue.js"></script>
+    <title>V-if</title>
+</head>
+<body>
+    <h1>v-if & v-else & v-show</h1>
+    <a href="../index.html">返回首页</a>
+    <hr>
+    <div id="app">
+           <div v-if="is_login">我是if--我登陆啦</div>
+           <div v-else-if='is_logout'>我是elseif-我退出啦</div>
+           <div v-else>我是else-我还没登陆呢</div>
+
+           <div v-show='is_login'>我是v-show--我登陆啦</div>
+    </div>
+    <script>
+    var app = new Vue({
+        el:"#app",
+        data:{
+          is_login:true,
+          is_logout:true
+
+        }
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../assets/js/vue.js"></script>
+    <title>vue.component 组件- component标签</title>
+</head>
+<body>
+<h1>vue.component 组件- component标签</h1>
+<a href="../index.html">返回首页</a>
+<hr>
+<div id="app">
+    <component :is="who"></component>
+    <button @click="changeComponent">随机改变Component</button>
+</div>
+<script>
+    var a1 = {
+        template: `<h1>我是1号</h1>`,
+    };
+    var a2 = {
+        template: `<h1>2号是我</h1>`,
+    };
+    var a3 = {
+        template: `<h1>3号我是</h1>`,
+    };
+
+    var app = new Vue({
+        el: "#app",
+        data: {'who': 'a1'},
+        components: {
+            'a1': a1,
+            'a2': a2,
+            'a3': a3,
+        },
+        methods:{
+            changeComponent:function (el) {
+                var rand =parseInt(Math.random() * (3 - 1 + 1) + 1);
+                var da = 'a'+rand;
+                this.who=da;
+            }
+        }
+    });
+</script>
+</body>
+</html>

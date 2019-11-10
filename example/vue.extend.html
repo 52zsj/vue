@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../assets/js/vue.js"></script>
+    <title>vue.extend扩展构造器</title>
+</head>
+
+<body>
+<h1>vue.extend扩展实例构造器</h1>
+<a href="../index.html">返回首页</a>
+<hr>
+<author>标签：</author>
+<div id="test">id:</div>
+<div class="classes">class:</div>
+<script>
+ /*可以是用ID进行绑定如上操作*/
+
+    var author = Vue.extend({
+        template: "<p><a :href='authorUrl' @click='t' target='_self'>{{authorName}}</a></p>",
+        data: function () {
+            return {
+                authorName: '张世杰',
+                authorUrl: 'http://jspang.com'
+            };
+        },
+        methods:{
+            t:function () {
+                console.log('我执行了吗');
+                return;
+            }
+        },
+        computed:{
+            
+        }
+    });
+    new author().$mount("author");
+    new author().$mount("#test");
+    new author().$mount(".classes");
+</script>
+</body>
+
+</html>

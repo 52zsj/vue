@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../assets/js/vue.js"></script>
+    <title>vue.set全局操作</title>
+</head>
+
+<body>
+<h1>vue.set全局操作</h1>
+<a href="../index.html">返回首页</a>
+<hr>
+<div id="app">
+    <p>{{count}}</p>
+    <button onclick="add()">增加</button>
+
+    <ul>
+        <li v-for="v in items">{{v}}</li>
+    </ul>
+</div>
+<script>
+    function add() {
+        //vue.count++;
+        // dataObj.count++;
+        // Vue.set(dataObj,'count',"++");
+        //使用这种形式改变数组值 无法重新渲染至dom 应该是用Vue.set
+        // dataObj.items[1]=777
+        Vue.set(dataObj.items,'1','7777');//使用Vue.set 可以实时刷新dom树
+
+    }
+    var dataObj ={
+        count: 20,
+        items:[111,222,333,444],
+    };
+    var vue = new Vue({
+        el: "#app",
+        data:dataObj
+    })
+</script>
+</body>
+
+</html>

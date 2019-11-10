@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../assets/js/vue.js"></script>
+    <title>vue.dirctive自定义指令</title>
+</head>
+
+<body>
+<h1>HelloWorld</h1>
+<a href="../index.html">返回首页</a>
+<hr>
+<div id="app">
+    <div v-zsj="colors">{{num}}</div>
+    <button @click='add'>增加</button>
+    <button onclick="unbind()">解绑</button>
+</div>
+<script>
+    // 5个钩子函数 原文链接https://cn.vuejs.org/v2/guide/custom-directive.html
+    function unbind(){
+        app.$destroy();
+    }
+    Vue.directive("zsj", {
+        bind: function (el, binding) {
+            console.log(el);
+            console.log(binding);
+            console.log('1： 绑定');
+        },
+        inserted: function () {
+            console.log('2： 元素插入');
+        },
+        update: function () {
+            console.log('3： 数据更新');
+        },
+        componentUpdated: function () {
+            console.log('4： 更新完成');
+        },
+        unbind: function () {
+            console.log('5： 解除绑定');
+        }
+    });
+    var app = new Vue({
+        el: "#app",
+        data: {
+            num: 100,
+            colors: 'red'
+        },
+        methods: {
+            add: function () {
+                this.num++;
+            }
+
+
+        }
+    });
+</script>
+</body>
+
+</html>
