@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../assets/js/vue.js"></script>
+    <title>HelloWorld</title>
+</head>
+<body>
+<h1>HelloWorld</h1>
+<a href="../index.html">返回首页</a>
+<hr>
+<div id="app">
+
+    <p>{{newCount}}</p>
+    <ol>
+        <li v-for="item in newsR">《{{item.title}}》--时间：{{item.date}}</li>
+    </ol>
+
+    <ol>
+        <li v-for="s in changeSex">学号：{{s.id}} 姓名：{{s.name}} 性别：{{s.sex}}</li>
+    </ol>
+
+</div>
+<script>
+    var newsList=[
+        {title:'香港或就“装甲车被扣”事件追责 起诉涉事运输公司',date:'2017/3/10'},
+        {title:'日本第二大准航母服役 外媒：针对中国潜艇',date:'2017/3/12'},
+        {title:'中国北方将有明显雨雪降温天气 南方阴雨持续',date:'2017/3/13'},
+        {title:'起底“最短命副市长”：不到40天落马，全家被查',date:'2017/3/23'},
+    ];
+
+    var student =[
+        {id:1,name:'张三',sex:1},
+        {id:2,name:'李四',sex:0},
+        {id:3,name:'王武',sex:0},
+        {id:4,name:'赵六',sex:1},
+        {id:5,name:'田七',sex:0},
+    ];
+    var app = new Vue({
+        el: '#app',
+        data: {
+            count: '99',
+            news_list:newsList,
+            student:student,
+        },
+        computed: {
+            newCount: function () {
+                return this.count = '数量：' + this.count + '件';
+            },
+            newsR: function () {
+                return this.news_list = this.news_list.reverse();
+            },
+            changeSex: function () {
+                this.student.forEach(function (value, key) {
+                    value.sex = value.sex == 1 ? '男' : '女';
+                });
+                return this.student
+            }
+        }
+    })
+
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../assets/js/vue.js"></script>
+    <title>HelloWorld</title>
+</head>
+<body>
+    <h1>HelloWorld</h1>
+    <a href="../index.html">返回首页</a>
+    <hr>
+    <div id="app">
+          <header></header>
+    </div>
+    <script>
+        var header_a = Vue.extend({
+            template:`<p>{{message}}-{{a}}</p>`,
+            data:function (el) {
+                return{
+                    message: '你是谁呀',
+                }
+
+            },
+            props:['a'],
+        });
+
+        new header_a({propsData:{a:'我是你大爷呀'}}).$mount('header');
+
+    </script>
+</body>
+</html>
