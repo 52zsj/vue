@@ -28,16 +28,17 @@
         // Vue.set(dataObj,'count',"++");
         //使用这种形式改变数组值 无法重新渲染至dom 应该是用Vue.set
         // dataObj.items[1]=777
-        Vue.set(dataObj.items,'1','7777');//使用Vue.set 可以实时刷新dom树
+        Vue.set(dataObj.items, '1', '7777');//使用Vue.set 可以实时刷新dom树
 
     }
-    var dataObj ={
+
+    var dataObj = {
         count: 20,
-        items:[111,222,333,444],
+        items: [111, 222, 333, 444],
     };
     var vue = new Vue({
         el: "#app",
-        data:dataObj
+        data: dataObj
     })
 </script>
 </body>

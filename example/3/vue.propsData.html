@@ -8,26 +8,26 @@
     <title>vue.propsData</title>
 </head>
 <body>
-    <h1>vue.propsData</h1>
-    <a href="../../index.html">返回首页</a>
-    <hr>
-    <div id="app">
-          <header></header>
-    </div>
-    <script>
-        var header_a = Vue.extend({
-            template:`<p>{{message}}-{{a}}</p>`,
-            data:function (el) {
-                return{
-                    message: '你是谁呀',
-                }
+<h1>vue.propsData</h1>
+<a href="../../index.html">返回首页</a>
+<hr>
+<div id="app">
+    <header></header>
+</div>
+<script>
+    var header_a = Vue.extend({
+        template: `<p>{{message}}-{{a}}</p>`,
+        data: function (el) {
+            return {
+                message: '你是谁呀',
+            }
 
-            },
-            props:['a'],
-        });
+        },
+        props: ['a'],
+    });
 
-        new header_a({propsData:{a:'我是你大爷呀'}}).$mount('header');
+    new header_a({propsData: {a: '我是你大爷呀'}}).$mount('header');
 
-    </script>
+</script>
 </body>
 </html>

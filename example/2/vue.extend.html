@@ -17,25 +17,23 @@
 <div id="test">id:</div>
 <div class="classes">class:</div>
 <script>
- /*可以是用ID进行绑定如上操作*/
+    /*可以是用ID进行绑定如上操作*/
 
     var author = Vue.extend({
         template: "<p><a :href='authorUrl' @click='t' target='_self'>{{authorName}}</a></p>",
         data: function () {
             return {
-                authorName: '张世杰',
+                authorName: '张三',
                 authorUrl: 'http://jspang.com'
             };
         },
-        methods:{
-            t:function () {
+        methods: {
+            t: function () {
                 console.log('我执行了吗');
-                return;
+
             }
         },
-        computed:{
-            
-        }
+        computed: {}
     });
     new author().$mount("author");
     new author().$mount("#test");

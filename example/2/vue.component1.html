@@ -18,17 +18,17 @@
 </div>
 
 <script>
-/*注意点 如果存在-中杆线的内容 在构造器中应该使用小驼峰方式进行书写 例如上例中user-name 在构造器中应该改成userName*/
+    /*注意点 如果存在-中杆线的内容 在构造器中应该使用小驼峰方式进行书写 例如上例中user-name 在构造器中应该改成userName*/
     var app = new Vue({
         el: "#app",
-        data:{
-            addr:'四川',
-            username:'功夫熊猫'
+        data: {
+            addr: '四川',
+            username: '功夫熊猫'
         },
         components: {
             'sj': {
                 template: `<h3 style="color: red">我是来自{{form}}的{{userName}}</h3>`,
-                props:['form','userName']
+                props: ['form', 'userName']
             }
         },
         methods: {},

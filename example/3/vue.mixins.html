@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../assets/js/vue.js"></script>
+    <title>vue.mixins</title>
+</head>
+<body>
+<h1>vue.mixins</h1>
+<a href="../../index.html">返回首页</a>
+<hr>
+<div id="app">
+    <p>{{num}}</p>
+    <p>
+        <button @click="add">添加</button>
+        <button @click="adds">添加</button>
+    </p>
+</div>
+<script>
+    Vue.mixin({
+        updated: function () {
+            console.log('我是全局的update方法');
+        }
+
+    });
+    var addLog = {
+        updated: function () {
+            console.log('我是外部的updated钩子函数');
+            console.log('数据变化：' + this.num);
+        },
+        methods: {
+            adds: function () {
+                this.num += 20;
+                console.log('我是混入的add函数');
+            }
+        }
+    };
+    var app = new Vue({
+        el: "#app",
+        data: {num: 1},
+        methods: {
+            add: function () {
+                this.num++;
+            }
+        },
+        mixins: [addLog],
+        updated: function () {
+            console.log('我是内部的钩子函数');
+        }
+    })
+</script>
+</body>
+</html>

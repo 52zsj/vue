@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../assets/js/vue.js"></script>
+    <title>vue.watch</title>
+</head>
+<body>
+<h1>vue.watch</h1>
+<a href="../../index.html">返回首页</a>
+<hr>
+<div id="app">
+    <p>有些时候我们会用实例属性的形式来写watch监控。也就是把我们watch卸载构造器的外部，这样的好处就是降低我们程序的耦合度，使程序变的灵活。</p>
+    <p>今天的温度：{{temperature}} ℃</p>
+    <p>穿衣建议：{{clothes}} </p>
+    <button @click="raise">温度升高</button>
+    <button @click="reduce">降低升高</button>
+    <button @click="random">随机温度</button>
+</div>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            temperature: 50,
+            clothes: '不建议穿衣服',
+        },
+        methods: {
+            raise: function () {
+                var tmp = parseInt(Math.random() * (15 - 1 + 1) + 5);
+                this.temperature += tmp;
+            },
+            reduce: function () {
+                var tmp = parseInt(Math.random() * (20 - 1 + 1) + 5);
+                this.temperature -= tmp;
+            },
+            random: function () {
+                var tmp = parseInt(Math.random() * (500 - 1 + 1) + (-100));
+                this.temperature = tmp;
+            }
+        },
+        watch: {
+            /*    temperature: function (newVal, oldVal) {
+                    if (newVal >= 50) {
+                        this.clothes = '不建议穿衣服'
+                    } else if (newVal < 50 && newVal > 0) {
+                        this.clothes = '穿短袖吧';
+                    } else {
+                        this.clothes = '看着穿吧';
+                    }
+                }*/
+        }
+    });
+
+    app.$watch('temperature', function (newVal, oldVal) {
+        if (newVal >= 50) {
+            this.clothes = '不建议穿衣服'
+        } else if (newVal < 50 && newVal > 0) {
+            this.clothes = '穿短袖吧';
+        } else {
+            this.clothes = '看着穿吧';
+        }
+    })
+
+</script>
+</body>
+</html>

@@ -10,72 +10,74 @@
 </head>
 
 <body>
-    <h1>v-for 实例</h1>
-    <a href="../../index.html">返回首页</a>
+<h1>v-for 实例</h1>
+<a href="../../index.html">返回首页</a>
+<hr>
+<div id="app">
+    <ul>
+        <li v-for="item in sortItems">
+            {{item}}
+        </li>
+    </ul>
     <hr>
-    <div id="app">
-        <ul>
-            <li v-for="item in sortItems">
-                {{item}}
-            </li>
-        </ul>
-        <hr>
-        <ul>
-            <li v-for="(v,key,index) in sortStudents">序号{{key}}--{{index}}----{{v.name}}--{{v.age}}--{{v.sex}}</li>
-        </ul>
-    </div>
-    <script>
-        var app = new Vue({
-            el: '#app',
-            data: {
-                items: [20, 23, 18, 7, 32, 19, 54, 56, 41],
-                students: [
-                    {
-                        name: '张世杰',
-                        age: '28',
-                        sex: 'man'
-                    },
-                    {
-                        name: '小小',
-                        age: '23',
-                        sex: 'woman'
-                    }, {
-                        name: '呵呵',
-                        age: '66',
-                        sex: 'man'
-                    }, {
-                        name: '恩恩',
-                        age: '13',
-                        sex: 'woman'
-                    }
-                ]
-
-            },
-            computed: {
-                sortItems: function () {
-                    return this.items.sort(sortNumbers);
+    <ul>
+        <li v-for="(v,key,index) in sortStudents">序号{{key}}--{{index}}----{{v.name}}--{{v.age}}--{{v.sex}}</li>
+    </ul>
+</div>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            items: [20, 23, 18, 7, 32, 19, 54, 56, 41],
+            students: [
+                {
+                    name: '张三',
+                    age: '28',
+                    sex: 'man'
                 },
-                sortStudents: function () {
-                    return sortByKey(this.students, 'age');
+                {
+                    name: '小小',
+                    age: '23',
+                    sex: 'woman'
+                }, {
+                    name: '呵呵',
+                    age: '66',
+                    sex: 'man'
+                }, {
+                    name: '恩恩',
+                    age: '13',
+                    sex: 'woman'
                 }
+            ]
 
+        },
+        computed: {
+            sortItems: function () {
+                return this.items.sort(sortNumbers);
+            },
+            sortStudents: function () {
+                return sortByKey(this.students, 'age');
             }
 
+        }
 
+
+    });
+
+    // 排序
+    function sortNumbers(a, b) {
+        return a - b;
+    }
+
+    // 数组对象方法排序
+    function sortByKey(array, key) {
+        return array.sort(function (a, b) {
+            var x = a[key];
+            var y = b[key];
+            return ((x < y) ? -1 : ((x > y) ? 1 : 0));
         });
-        // 排序
-        function sortNumbers(a, b) {
-            return a - b;
-        }
-        // 数组对象方法排序
-        function sortByKey(array, key) {
-            return array.sort(function (a, b) {
-                var x = a[key];
-                var y = b[key];
-                return ((x < y) ? -1 : ((x > y) ? 1 : 0));
-            });
-        }
-    </script>
+    }
+</script>
 </body>
 
 </html>

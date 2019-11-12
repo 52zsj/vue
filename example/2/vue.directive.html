@@ -20,9 +20,10 @@
 </div>
 <script>
     // 5个钩子函数 原文链接https://cn.vuejs.org/v2/guide/custom-directive.html
-    function unbind(){
+    function unbind() {
         app.$destroy();
     }
+
     Vue.directive("zsj", {
         bind: function (el, binding) {
             console.log(el);

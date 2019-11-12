@@ -13,67 +13,63 @@
         }
 
         .classb {
-           font-size: 55px;
+            font-size: 55px;
         }
     </style>
 </head>
 
 <body>
-    <h1>v-bind实例</h1>
-    <a href="../../index.html">返回首页</a>
+<h1>v-bind实例</h1>
+<a href="../../index.html">返回首页</a>
+<hr>
+<div id="app">
+    <div>{{message}}</div>
+    <p><img :src='img_src' v-bind:alt='message' style="width: 50px"></p>
+    <p><img :src='img_src2' v-bind:alt='message' style="width: 50px"></p>
+    <p><a :href="baidu" target="_blink">百度</a></p>
     <hr>
-    <div id="app">
-        <div>{{message}}</div>
-        <p><img :src='img_src' v-bind:alt='message' style="width: 50px"></p>
-        <p><img :src='img_src2' v-bind:alt='message' style="width: 50px"></p>
-        <p><a :href="baidu" target="_blink">百度</a></p>
-        <hr>
-        <h3>绑定class</h3>
-        <div :class='{classA:isOk}'>原来我没有输出文字</div>
-        <div>
-            <input type="checkbox" name="" id="" v-model='isOk'>颜色切换{{isOk}}
-        </div>
-        <hr>
-        <h3>绑定class数组</h3>
-        <div :class='classarr'>原来我没有输出文字</div>
-        <hr>
-        <h3>三元运算符</h3>
-        <div :class='isOk?classA:classB'>原来我没有输出文字</div>
-        <hr>
-        <h3>绑定style</h3>
-        <div :style="{color:red,fontSize:font}">原来我没有输出文字</div>
-        <hr>
-
-        <h3>绑定style对象</h3>
-        <div :style="styles">原来我没有输出文字</div>
-
-        <hr>
+    <h3>绑定class</h3>
+    <div :class='{classA:isOk}'>原来我没有输出文字</div>
+    <div>
+        <input type="checkbox" name="" id="" v-model='isOk'>颜色切换{{isOk}}
     </div>
-    <script>
-        var app = new Vue({
-            el: '#app',
-            data: {
-                message: '我没有图片',
-                img_src: 'https://cn.vuejs.org/images/logo.png',
-                img_src2: '',
-                baidu: 'http://www.baidu.com',
-                classA: 'classa',
-                classB: 'classb',
-                isOk:false,
-                classarr:['classa','classb'],
-                red:'red',
-                font:'20px',
-                styles:{color:'grey',fontSize:'25px'},
-            },
-            computed: {
+    <hr>
+    <h3>绑定class数组</h3>
+    <div :class='classarr'>原来我没有输出文字</div>
+    <hr>
+    <h3>三元运算符</h3>
+    <div :class='isOk?classA:classB'>原来我没有输出文字</div>
+    <hr>
+    <h3>绑定style</h3>
+    <div :style="{color:red,fontSize:font}">原来我没有输出文字</div>
+    <hr>
 
-            },
-            methods: {
+    <h3>绑定style对象</h3>
+    <div :style="styles">原来我没有输出文字</div>
 
-            }
-        });
+    <hr>
+</div>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: '我没有图片',
+            img_src: 'https://cn.vuejs.org/images/logo.png',
+            img_src2: '',
+            baidu: 'http://www.baidu.com',
+            classA: 'classa',
+            classB: 'classb',
+            isOk: false,
+            classarr: ['classa', 'classb'],
+            red: 'red',
+            font: '20px',
+            styles: {color: 'grey', fontSize: '25px'},
+        },
+        computed: {},
+        methods: {}
+    });
 
-    </script>
+</script>
 </body>
 
 </html>

@@ -10,33 +10,31 @@
 </head>
 
 <body>
-    <h1>V-text&v-html 实例</h1>
-    <a href="../../index.html">返回首页</a>
+<h1>V-text&v-html 实例</h1>
+<a href="../../index.html">返回首页</a>
+<hr>
+<div id="app">
+    <span>{{message}}</span>=<span v-text=message></span>
     <hr>
-    <div id="app">
-        <span>{{message}}</span>=<span v-text=message></span>
-        <hr>
-        <span>{{dodo}}</span>=<span v-text=dodo></span>
-        <hr>
-        尽量少用v-html 因为可能存在XSS攻击
-        <span>数据：dodo</span>不等于<span v-html=dodo></span> 
-    </div>
-    <script>
-        var app = new Vue({
-            el: '#app',
-            data: {
-                message: 'Helloworld',
-                dodo:'<h2>Helloworld</h2>'
+    <span>{{dodo}}</span>=<span v-text=dodo></span>
+    <hr>
+    尽量少用v-html 因为可能存在XSS攻击
+    <span>数据：dodo</span>不等于<span v-html=dodo></span>
+</div>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Helloworld',
+            dodo: '<h2>Helloworld</h2>'
 
-            },
-            computed: {
-
-            }
+        },
+        computed: {}
 
 
-        });
+    });
 
-    </script>
+</script>
 </body>
 
 </html>

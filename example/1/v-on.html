@@ -10,47 +10,45 @@
 </head>
 
 <body>
-    <h1>v-on 实例</h1>
-    <a href="../../index.html">返回首页</a>
-    <hr>
-    <div id="app">
-        {{count}}
-        <br>
-        <a href="javascript:void(0);" v-on:click='addCount'>加分</a>
-        <a href="javascript:void(0);" @click='jianCount'>减分</a>
-        <input type="text" @keyup.enter='addScore' v-model='fenshu'>
-        <input type="text" @keyup.12='addScore' v-model='fenshu'>
-    </div>
-    <script>
-        var app = new Vue({
-            el: '#app',
-            data: {
-                count: 1,
-                fenshu: 2,
+<h1>v-on 实例</h1>
+<a href="../../index.html">返回首页</a>
+<hr>
+<div id="app">
+    {{count}}
+    <br>
+    <a href="javascript:void(0);" v-on:click='addCount'>加分</a>
+    <a href="javascript:void(0);" @click='jianCount'>减分</a>
+    <input type="text" @keyup.enter='addScore' v-model='fenshu'>
+    <input type="text" @keyup.12='addScore' v-model='fenshu'>
+</div>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            count: 1,
+            fenshu: 2,
 
+        },
+        computed: {},
+        methods: {
+            addCount: function () {
+                this.count++;
             },
-            computed: {
-
-            },
-            methods: {
-                addCount: function () {
-                    this.count++;
-                },
-                jianCount: function () {
-                    if (this.count <= 0) {
-                        return;
-                    }
-                    this.count--;
-                },
-                addScore: function () {
-                    this.count = parseInt(this.count) + parseInt(this.fenshu);
+            jianCount: function () {
+                if (this.count <= 0) {
+                    return;
                 }
+                this.count--;
+            },
+            addScore: function () {
+                this.count = parseInt(this.count) + parseInt(this.fenshu);
             }
+        }
 
 
-        });
+    });
 
-    </script>
+</script>
 </body>
 
 </html>

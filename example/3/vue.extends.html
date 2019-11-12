@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../assets/js/vue.js"></script>
+    <title>vue.extends</title>
+</head>
+<body>
+<h1>vue.extends</h1>
+<a href="../../index.html">返回首页</a>
+<hr>
+<div id="app">
+    <p>{{num}}</p>
+    <p>
+        <button @click="add">添加</button>
+        <button @click="adds">添加</button>
+    </p>
+</div>
+<script>
+    var extendObj = {
+        created: function () {
+            console.log("我是被扩展出来的");
+        },
+        methods: {
+            add: function () {
+                this.num += 2;
+                console.log('我是被扩展出来的add函数');
+            },
+            adds: function () {
+                this.num += 10;
+                console.log('我是被扩展出来的adds函数');
+            }
+        }
+    };
+    var app = new Vue({
+        el: "#app",
+        data: {num: 1},
+        methods: {
+            add: function () {
+                this.num++;
+            }
+        },
+        updated: function () {
+            console.log('我是内部的钩子函数');
+        },
+        extends: extendObj
+    })
+</script>
+</body>
+</html>
