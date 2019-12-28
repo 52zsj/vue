@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../../assets/js/vue.js"></script>
+    <script src="../../assets/js/jquery-3.1.1.min.js"></script>
+    <title>和jquery 一起使用</title>
+</head>
+<body>
+<h1>HelloWorld</h1>
+<a href="../../index.html">返回首页</a>
+<hr>
+<div id="app">
+    {{message}}
+</div>
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            message: 'HelloWorld',
+        },
+        mounted:function () {
+            $("#app").html('我是jquery数据');
+        },
+        methods:{
+            add:function(){
+                console.log("调用了Add方法");
+                $("#app").html('实力方法');
+            },
+            edit:function () {
+
+            }
+        }
+    });
+    app.add();
+    console.log(app);
+</script>
+</body>
+</html>
